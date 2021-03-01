@@ -18,27 +18,27 @@ This is a library that implements 3 different behaviours. First is flocking beha
 apply function update_rock_behaviour in update sprite
 
 ## Code Examples
-function update_rock_behaviour
+function update_rock_behaviour:
 
-def update_rock_behaviour(current, boids, ship, missile):
-    acceleration = [0, 0]
-    position = Vector(*(current.pos))
-    velocity = Vector(*(current.vel))
-    acceleration = current.acceleration
+    def update_rock_behaviour(current, boids, ship, missile):
+        acceleration = [0, 0]
+        position = Vector(*(current.pos))
+        velocity = Vector(*(current.vel))
+        acceleration = current.acceleration
       
-    position += velocity
-    velocity += acceleration
+        position += velocity
+        velocity += acceleration
 
-    if np.linalg.norm(velocity) > MAX_SPEED:
-        velocity = velocity / np.linalg.norm(velocity) * MAX_SPEED
+        if np.linalg.norm(velocity) > MAX_SPEED:
+           velocity = velocity / np.linalg.norm(velocity) * MAX_SPEED
 
-    if len(missile)>10
-        position,velocity = attack_mode(position, velocity, acceleration, current, missiles, ship)
-    elif len(missile)>2
-        position,velocity = defence_mode(position, velocity, acceleration, current, missiles, ship)
+        if len(missile)>10
+           position,velocity = attack_mode(position, velocity, acceleration, current, missiles, ship)
+        elif len(missile)>2
+           position,velocity = defence_mode(position, velocity, acceleration, current, missiles, ship)
 
-    current.pos = [position.x.item(), position.y.item()]
-    current.vel = [velocity.x.item(), velocity.y.item()]
+        current.pos = [position.x.item(), position.y.item()]
+        current.vel = [velocity.x.item(), velocity.y.item()]
 
 
 
